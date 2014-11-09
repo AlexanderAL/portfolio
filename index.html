@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8"/>
+  <title>my3D</title>
+  <meta type="description" content="{{description|default meta decription}}"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Link CSS -->
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+
+
+  <!-- link jquery TONOTE: set at the end -->
+    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
+<!-- Link JS  -->
+
+</head>
+
+<body>
+
+<!-- BLOCK_02 *** Squares section -->
+  <div>
+      <div>
+        <div id="services" class="cf">
+          <section class="service">
+            <div class="service-icon"><span class="icon-web"></span><br/>TEAM LEADING</div>
+            <div class="service-description"><p>Something descriptive about production team leading. And what you offer as a service.</p></div>
+          </section>
+          <section class="service">
+            <div class="service-icon"><span class="icon-graphic"></span><br/>3D DESIGN</div>
+            <div class="service-description"><p>Something descriptive about 3D design. And what you offer as a service.</p></div>
+          </section>
+          <section class="service">
+            <div class="service-icon"><span class="icon-logo"></span><br/>COMPOSITING</div>
+            <div class="service-description"><p>Something descriptive.</p></div>
+          </section>
+          <section class="service">
+            <div class="service-icon"><span class="icon-dev"></span><br/>GRAPHIC DESIGN</div>
+            <div class="service-description"><p>Something descriptive.</p></div>
+          </section>
+          <section class="service">
+            <div class="service-icon"><span class="icon-3d"></span><br/>NON LINEAR EDITING</div>
+            <div class="service-description"><p>Something descriptive.</p></div>
+          </section>
+          <section class="service">
+            <div class="service-icon"><span class="icon-illustration"></span><br/>PRINT PRODUCTION</div>
+            <div class="service-description"><p>Something descriptive.</p></div>
+          </section>
+      </div>
+  </div>
+  <!-- END BLOCK_02 -->
+
+<!-- link SCRIPT -->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> <!-- online js -->
+    
+    <script src="js/script.js"></script> <!-- local js for BLOCK_02-->
+    <!-- TONOTE: if js from separate file is not working - use js here:
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    $('.service').click(function() {
+    var $this = $(this);
+    if ($this.hasClass("open")) {
+    $this.find('.service-icon').animate({left: "0"});
+    $this.find('.service-description').animate({left: "100%"});
+    $this.removeClass("open");
+    }
+    else {
+    $this.find('.service-icon').animate({left: "-100%"});
+    $this.find('.service-description').animate({left: "0"});
+    $this.addClass("open");
+    }
+    });
+    });
+    </script>
+    -->
+
+</body>

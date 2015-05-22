@@ -1,4 +1,9 @@
-/* for BLOCK_02 */
+/*Fontawesome Iconfont*/
+@import url(http://thecodeplayer.com/uploads/fonts/font-awesome-4.0.1/css/font-awesome.min.css);
+/*Montserrat, Open Sans*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat|Open+Sans:400,300);
+
+/* BLOCK_01 */
 
 #services .service {
         width: 33%;
@@ -93,17 +98,19 @@
 
 @import url(reset.css);
 
-* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+* {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0; padding: 0;}
 
 .cf:before, .cf:after { content: " "; /* 1 */ display: table; /* 2 */ }
 .cf:after { clear: both; }
 .cf { *zoom: 1; }
 
+
+
 body {
        font-family: 'Exo 2', sans-serif; /* Google Font http://google.com/fonts */
        text-align: center;
        color: #999;
-       background: #444;
+       background: #333;
        -webkit-font-smoothing: antialiased;
 }
 
@@ -129,4 +136,143 @@ body {
        bottom: 5px;
 }
 
-/* END for BLOCK_02 */
+/* END for BLOCK_01 */
+
+/*BLOCK 2. FOR CANVAS */
+
+#wrapper {width: 645px; height: 500px; margin: 35px auto 0 auto;}
+h1 {
+       color: white; font: 300 40px 'Open Sans';
+       width: 300px; padding: 30px; float: left;
+}
+
+.mobile {
+       float: left; position: relative;
+       box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.5);
+       overflow: hidden;
+}
+/*Hiding the checkbox*/
+#tm {display: none;}
+/*Content area*/
+.mobile section {
+       background: url("http://thecodeplayer.com/uploads/media/mb1.png");
+       width: 285px; height: 500px;
+       position: relative; transition: all 0.25s;
+}
+.mobile section label {
+       color: white; font: bold 14px Montserrat; text-align: center;
+       border: 2px solid white; border-radius: 4px;
+       display: block; padding: 10px 0;
+       width: 60%; position: absolute; left: 20%; top: 100px;
+       cursor: pointer; text-transform: uppercase;
+}
+/*Nav styles*/
+.sidenav {
+       background: rgb(50, 60, 60); width: 150px;
+       position: absolute; left: 0; top: 0; bottom: 0; padding-top: 100px;
+}
+.sidenav li {list-style-type: none;}
+.sidenav a { color: white; text-decoration: none; }
+.sidenav b {
+       font: bold 12px/48px Montserrat; display: block;
+       opacity: 0; transform: translateX(50px); transition: all 0.4s;
+}
+.sidenav i {
+       display: block; width: 50px; float: left; 
+       font-size: 16px; line-height: 48px; text-align: center;
+}
+/*Animation controls using checkbox hack*/
+/*Animate content area to the right*/
+#tm:checked ~ section {transform: translateX(150px);}
+/*Animate links from right to left + fade in effect*/
+#tm:checked ~ .sidenav b {opacity: 1; transform: translateX(0);}
+
+/*Adding delay to link animation - in multiples of .08s*/
+/*One can use jQuery also for creating the delayed effect. But I will stick to manual CSS for this walkthrough.*/
+#tm:checked ~ .sidenav li:nth-child(1) b {transition-delay: 0.08s;}
+#tm:checked ~ .sidenav li:nth-child(2) b {transition-delay: 0.16s;}
+#tm:checked ~ .sidenav li:nth-child(3) b {transition-delay: 0.24s;}
+#tm:checked ~ .sidenav li:nth-child(4) b {transition-delay: 0.32s;}
+#tm:checked ~ .sidenav li:nth-child(5) b {transition-delay: 0.40s;}
+#tm:checked ~ .sidenav li:nth-child(6) b {transition-delay: 0.48s;}
+
+/* block_02    3D-Link-Img*/
+
+/*custom font - Montserrat*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+/*basic reset*/
+/** {margin: 0; padding: 0;}*/
+/*forcing the body to take 100% height*/
+/*html, body {min-height: 100%;}*/
+/*a nice BG*/
+/*body {
+       background: #544;
+*/
+       /*fallback*/
+/*       background: linear-gradient(#544, #565);
+}
+*/
+
+/*Thumbnail Background*/
+.thumb {
+       width: 400px; height: 300px; margin: 70px auto;
+       perspective: 1000px;
+}
+.thumb a {
+       display: block; width: 100%; height: 100%;
+       /*double layered BG for lighting effect*/
+       background: 
+              linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url("http://placehold.it/200x200/292929/e3e3e3");
+              /*picture for link*/
+              /*url("http://thecodeplayer.com/u/m/i1.png");*/
+              /* TOCHANGED: removed link to robot picture */
+       /*disabling the translucent black bg on the main image*/
+       background-size: 0, cover;
+       /*3d space for children*/
+       transform-style: preserve-3d;
+       transition: all 0.5s;
+}
+.thumb:hover a {transform: rotateX(80deg); transform-origin: bottom;}
+/*bottom surface */
+.thumb a:after {
+       /*36px high element positioned at the bottom of the image*/
+       content: ''; position: absolute; left: 0; bottom: 0; 
+       width: 100%; height: 36px;
+       /*inherit the main BG*/
+       background: inherit; background-size: cover, cover;
+       /*draw the BG bottom up*/
+       background-position: bottom;
+       /*rotate the surface 90deg on the bottom axis*/
+       transform: rotateX(90deg); transform-origin: bottom;
+}
+/*label style*/
+.thumb a span {
+       color: white; text-transform: uppercase;
+       position: absolute; top: 100%; left: 0; width: 100%;
+       font: bold 12px/36px Montserrat; text-align: center;
+       /*the rotation is a bit less than the bottom surface to avoid flickering*/
+       transform: rotateX(-89.99deg); transform-origin: top;
+       z-index: 1;
+}
+/*shadow*/
+.thumb a:before {
+       content: ''; position: absolute; top: 0; left: 0;
+       width: 100%; height: 100%;
+       background: rgba(0, 0, 0, 0.5); 
+       box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
+       transition: all 0.5s; 
+       /*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
+       opacity: 0.15;
+       transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+       transform-origin: bottom;
+}
+.thumb:hover a:before {
+       opacity: 1;
+       /*blurred effect using box shadow as filter: blur is not supported in all browsers*/
+       box-shadow: 0 0 25px 25px rgba(0, 0, 0, 0.5);
+       /*pushing the shadow down and scaling it down to size*/
+       transform: rotateX(0) translateZ(-60px) scale(0.85);
+}
+
+
